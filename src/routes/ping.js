@@ -3,6 +3,6 @@ module.exports = {
   path: '/ping',
   handler: (request, response) => {
     response('pong');
+  },
+};
 
-  }
-}
