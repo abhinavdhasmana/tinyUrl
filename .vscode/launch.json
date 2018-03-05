@@ -7,6 +7,16 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "test",
+      "program": "${workspaceFolder}/node_modules/lab/bin/lab",
+      "args": [
+        "${workspaceFolder}/test"
+      ],
+      "internalConsoleOptions": "openOnSessionStart"
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Launch Program",
       "program": "${workspaceFolder}/src/server.js"
     }
