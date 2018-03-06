@@ -9,7 +9,10 @@ const recursiveInsert = (longUrl, startIndex, endIndex) => {
     .spread((createdObject, created) => {
       if ((!created) && (createdObject.originalUrl !== longUrl)) {
         // Looks like we have a conflict
-        recursiveInsert(longUrl, endIndex + 1, endIndex + incrementSize);
+        console.log('******************************');
+        console.log('conflict found');
+        console.log('******************************');
+        return recursiveInsert(longUrl, endIndex + 1, endIndex + incrementSize);
       }
       return { longUrl: createdObject.originalUrl, code: createdObject.code };
     });

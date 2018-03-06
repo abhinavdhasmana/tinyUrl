@@ -41,6 +41,7 @@ lab.experiment('createShortUrlAndInsert', () => {
     createUrl.createShortUrlAndInsert(url1)
       .then(() => {
         createUrl.createShortUrlAndInsert(url2).then((result2) => {
+          expect(result2.code).to.eqls('ghijkl');
           Models.urls.findAll({
             where: {
               code: result2.code,

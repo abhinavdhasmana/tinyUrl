@@ -5,7 +5,7 @@ module.exports = {
   path: '/create',
   handler: (request, response) => {
     const longUrl = request.payload.url;
-    createUrlLib.createShortUrlandInsert(longUrl)
+    createUrlLib.createShortUrlAndInsert(longUrl)
       .then((result) => {
         response(result);
       });
