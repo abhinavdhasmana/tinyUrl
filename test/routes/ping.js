@@ -3,7 +3,6 @@ const Lab = require('lab');
 
 exports.lab = Lab.script();
 const { lab } = exports;
-// const ping = require('../../src/routes/ping');
 const Server = require('../../src/server');
 
 const { expect } = Chai;

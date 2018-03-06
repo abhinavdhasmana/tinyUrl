@@ -6,7 +6,7 @@ const { lab } = exports;
 
 const { expect } = Chai;
 
-const Models = require('../../models/');
+const Models = require('../../src/models');
 
 lab.experiment('url createObject', () => {
   lab.beforeEach((done) => {
@@ -24,7 +24,7 @@ lab.experiment('url createObject', () => {
   lab.test('should not create a new entry if entry already exists', (done) => {
     Models.urls.createObject('abcdeg', 'http://thisislocalurl123.com')
       .then(() => {
-        Models.urls.createObject('abcdeg', 'http://thisislocalurl123.com')
+        Models.urls.createObject('abcdeg', 'http://thisislocalurl123456.com')
           .spread((newCreatedObject, newCreated) => {
             expect(newCreated).to.eq(false);
             expect(newCreatedObject.originalUrl).to.eq('http://thisislocalurl123.com');

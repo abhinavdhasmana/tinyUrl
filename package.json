@@ -15,13 +15,14 @@
     "chai": "^4.1.2",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.9.0",
-    "lab": "^14.3.1"
+    "lab": "^14.3.1",
+    "sinon": "^4.4.2"
   },
   "scripts": {
     "start": "node src/server.js",
     "lint": "eslint . --ignore-path .gitignore",
-    "test-coverage:html": "NODE_ENV=test lab -r html -o ./coverage/coverage.html",
-    "test": "npm run lint && NODE_ENV=test sequelize db:migrate:undo:all && NODE_ENV=test sequelize db:migrate && NODE_ENV=test lab -v -t 85 && npm run test-coverage:html"
+    "test-coverage:html": "NODE_ENV=test lab -v -t 85 -r html -o ./coverage/coverage.html",
+    "test": "npm run lint && NODE_ENV=test sequelize db:migrate:undo:all && NODE_ENV=test sequelize db:migrate && NODE_ENV=test lab -v -t 85"
   },
   "author": "Abhinav Dhasmana",
   "license": "ISC"
