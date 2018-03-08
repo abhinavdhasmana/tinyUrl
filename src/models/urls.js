@@ -7,5 +7,6 @@ module.exports = (sequelize, DataTypes) => {
     where: { code },
     defaults: { originalUrl },
   });
+  urls.getLongUrl = code => urls.findOne({ where: { code } });
   return urls;
 };

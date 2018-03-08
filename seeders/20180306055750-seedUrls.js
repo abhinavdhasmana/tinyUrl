@@ -5,13 +5,14 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     const allData = [];
     const allCodes = {};
+    const url = 'http://www.thisissomereallylongurl';
     for (let i = 0; i < 1000000; i += 1) {
       const code = helper.generateShortURL(`url${i}`, 0, 5);
       if (!allCodes[code]) {
         allCodes[code] = true;
         const temp = {
           code,
-          originalUrl: `url${i}`,
+          originalUrl: `${url}${i}`,
           createdAt: new Date(),
           updatedAt: new Date()
         };
@@ -21,6 +22,7 @@ module.exports = {
     // console.log(Sequelize.Model);
     // return Sequelize.Model.urls.bulkCreate(allData);
     console.log(allData.length);
+
     return queryInterface.bulkInsert('urls', allData);
     /*
       Add altering commands here.
