@@ -6,10 +6,5 @@ module.exports = {
       .replace(/\+/g, '-');
     return hash.substring(startIndex, endIndex + 1);
   },
-  generateShortURLOld: (longURL, startIndex, endIndex) => {
-    const hash = crypto.createHash('md5').update(longURL).digest('hex');
-    // console.log('new hash', hash);
-    return hash.substring(startIndex, endIndex + 1);
-  },
 };
 
