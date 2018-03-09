@@ -10,11 +10,7 @@
     }
   },
   "test": {
-    "username": "abhinavdhasmana",
-    "password": null,
-    "database": "tinyurl_test",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "use_env_variables": "root://root:@localhost:5432/circle-test_test"
   },
   "production": {
     "username": "abhinavdhasmana",
