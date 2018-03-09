@@ -17,9 +17,6 @@ jobs:
         environment:
         - POSTGRES_USER: root
         - POSTGRES_DB: circle-test_test
-        - username: 'root'
-        - password:
-        - database: circle-test_test
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
