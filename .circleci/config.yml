@@ -18,6 +18,8 @@ jobs:
         - POSTGRES_PASSWORD: root
         - POSTGRES_USER: postgres
 
+      - image: redis
+
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
@@ -43,4 +45,4 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: NODE_ENV=circleci_test npm run circleciTest
+      - run: npm run circleciTest
