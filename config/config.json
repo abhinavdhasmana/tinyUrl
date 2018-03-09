@@ -10,7 +10,7 @@
     }
   },
   "test": {
-    "use_env_variables": "root://root:@localhost:5432/circle-test_test",
+    "use_env_variables": "postgresql://root@localhost:5432/circle-test_test",
     "dialect": "postgres"
   },
   "production": {
