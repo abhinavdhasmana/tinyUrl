@@ -9,11 +9,14 @@ jobs:
       # specify the version you desire here
       - image: circleci/node:8.9.4
         environment:
-        - NODE_ENV: test
+        - NODE_ENV: circleci_test
         - PGHOST: 127.0.0.1
-        - PGUSER: root
 
       - image: circleci/postgres:9.6.2-alpine
+        environment:
+        - POSTGRES_DB: tinyurl_test
+        - POSTGRES_PASSWORD: root
+        - POSTGRES_USER: postgres
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -40,4 +43,4 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: npm test
+      - run: npm run circleciTest

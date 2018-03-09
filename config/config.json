@@ -10,13 +10,23 @@
     }
   },
   "test": {
-    "use_env_variables": "postgresql://root@localhost:5432/circle-test_test",
+    "username": "abhinavdhasmana",
+    "password": null,
+    "database": "tinyurl_test",
+    "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
     "username": "abhinavdhasmana",
     "password": null,
     "database": "tinyurl_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "circleci_test": {
+    "username": "postgres",
+    "password": "root",
+    "database": "tinyurl_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
