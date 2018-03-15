@@ -20,18 +20,16 @@ module.exports = redisClient => [{
     let originalUrl = null;
     redisClient.hget(hashObject, shortUrl, (err, redisResult) => {
       if (redisResult === null) {
-        console.log('Did not find in Redis');
         Models.urls.getLongUrl(shortUrl).then((result) => {
           if (result !== null) {
             ({ originalUrl } = result);
             redisClient.hset(hashObject, shortUrl, originalUrl);
             response({ originalUrl });
           } else {
-            response({ originalUrl: 'Not founds' });
+            response({ originalUrl: 'Not found' });
           }
         });
       } else {
-        console.log('Found in redis');
         originalUrl = redisResult;
         response({ originalUrl });
       }

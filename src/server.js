@@ -3,7 +3,7 @@ const Routes = require('./routes');
 const Good = require('good');
 const redis = require('redis');
 
-const redisClient = redis.createClient();
+const redisClient = redis.createClient({ host: '172.31.17.28' });
 
 redisClient.on('error', (error) => {
   console.log('failed to connect to redis', error); // eslint-disable-line no-console
@@ -11,7 +11,7 @@ redisClient.on('error', (error) => {
 
 const server = new Hapi.Server({
 });
-server.connection({ port: 3000, host: 'localhost' });
+server.connection({ port: 8080, host: '0.0.0.0' });
 server.route(Routes(redisClient));
 
 server.register({

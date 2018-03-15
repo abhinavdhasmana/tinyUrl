@@ -19,30 +19,11 @@ module.exports = {
         allData.push(temp);
       }
     }
-    // console.log(Sequelize.Model);
-    // return Sequelize.Model.urls.bulkCreate(allData);
     console.log(allData.length);
 
     return queryInterface.bulkInsert('urls', allData);
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkInsert('Person', [{
-        name: 'John Doe',
-        isBetaMember: false
-      }], {});
-    */
   },
 
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkDelete('Person', null, {});
-    */
   },
 };
