@@ -1,3 +1,6 @@
+#!/bin/bash
+sudo apt update
+sudo apt install htop
 git clone https://github.com/abhinavdhasmana/tinyUrl.git
 cd tinyUrl
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
