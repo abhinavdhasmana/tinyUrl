@@ -98,7 +98,7 @@
           <stringProp name="LoopController.loops">50000</stringProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">100</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1000</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">500</stringProp>
         <longProp name="ThreadGroup.start_time">1520394131000</longProp>
         <longProp name="ThreadGroup.end_time">1520392790000</longProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
@@ -185,7 +185,7 @@
               <threadCounts>true</threadCounts>
             </value>
           </objProp>
-          <stringProp name="filename">/home/ubuntu/perf.log</stringProp>
+          <stringProp name="filename">/home/ubuntu/perf.jtl</stringProp>
           <boolProp name="useGroupName">true</boolProp>
         </ResultCollector>
         <hashTree/>
