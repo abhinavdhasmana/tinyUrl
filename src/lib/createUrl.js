@@ -16,8 +16,8 @@ const recursiveInsert = (longUrl, startIndex, endIndex) => {
 
 module.exports = {
   createShortUrlAndInsert: (longUrl) => {
-    const p = recursiveInsert(longUrl, 0, 5);
-    return p.then(result => result);
+    const insertPromise = recursiveInsert(longUrl, 0, 5);
+    return insertPromise.then(result => result);
   },
 
 

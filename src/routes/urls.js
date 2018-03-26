@@ -3,7 +3,7 @@ const Models = require('../models');
 
 module.exports = redisClient => [{
   method: 'POST',
-  path: '/create',
+  path: '/shorten',
   handler: (request, response) => {
     const longUrl = request.payload.url;
     createUrlLib.createShortUrlAndInsert(longUrl)
