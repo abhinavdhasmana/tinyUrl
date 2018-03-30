@@ -48,3 +48,20 @@ lab.experiment('validations', () => {
     });
   });
 });
+
+lab.experiment('url getLongUrl', () => {
+  lab.beforeEach((done) => {
+    Models.urls.truncate().then(() => {
+      done();
+    });
+  });
+  lab.test('should get the long URL when it exists in the database', (done) => {
+    Models.urls.createObject('abcdef', 'http://thisisdummy')
+      .spread(() => {
+        Models.urls.getLongUrl('abcdef').then((result) => {
+          expect(result.originalUrl).to.eqls('http://thisisdummy');
+          done();
+        });
+      });
+  });
+});
