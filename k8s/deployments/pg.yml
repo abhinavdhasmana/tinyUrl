@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: pg-tinyurl-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pg-tinyurl
+    spec:
+      containers:
+        - name: pg
+          image: postgres:latest
+          env:
+            - name: "POSTGRES_PASSWORD"
+              value: "mypassword"
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "200m"
+          volumeMounts:
+            - name: pg-tinyurl-volume
+              mountPath: /var/lib/postgresql/data
+              subPath: pgdata
+      volumes:
+        - name: pg-tinyurl-volume
+          persistentVolumeClaim:
+            claimName: pg-tinyurl-claim

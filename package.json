@@ -25,6 +25,7 @@
     "sinon": "^4.4.2"
   },
   "scripts": {
+    "kstart": "sequelize db:migrate && node src/server.js",
     "start": "node_modules/.bin/pm2 start -i max src/server.js",
     "stop": "node_modules/.bin/pm2 stop all",
     "lint": "eslint . --ignore-path .gitignore",

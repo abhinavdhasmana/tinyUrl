@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: pg-tinyurl-service
+  labels:
+    app: pg-tinyurl
+spec:
+  selector:
+    app: pg-tinyurl
+  type: LoadBalancer
+  ports:
+    - port: 5432
+      targetPort: 5432
+      protocol: TCP

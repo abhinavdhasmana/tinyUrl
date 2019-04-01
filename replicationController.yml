@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: nodetinyurl-replicationcontroller
+spec:
+  replicas: 2
+  selector:
+    app: nodetinyurl
+  template:
+    metadata:
+      labels:
+        app: nodetinyurl
+    spec:
+      containers:
+        - name: nodetinyurl-pod
+          image: abhinavdhasmana/tinyurl
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080

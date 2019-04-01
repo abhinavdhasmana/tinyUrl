@@ -3,7 +3,8 @@
     "username": "abhinavdhasmana",
     "password": "test",
     "database": "tinyurl_development",
-    "host": "172.31.17.70",
+    "host": "192.168.64.2",
+    "port": "32181",
     "dialect": "postgres",
     "pool": {
       "max": 20

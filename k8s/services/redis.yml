@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: redis-tinyurl-service
+  labels:
+    app: redis-tinyurl
+spec:
+  selector:
+    app: redis-tinyurl
+  type: LoadBalancer
+  ports:
+    - port: 6379
+      targetPort: 6379
+      protocol: TCP

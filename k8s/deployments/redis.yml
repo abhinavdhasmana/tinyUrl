@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: redis-tinyurl-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: redis-tinyurl
+    spec:
+      containers:
+        - name: redis
+          image: redis:latest
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "200m"
+          volumeMounts:
+            - name: redis-tinyurl-volume
+              mountPath: /data
+              subPath: redisdata
+      volumes:
+        - name: redis-tinyurl-volume
+          persistentVolumeClaim:
+            claimName: redis-tinyurl-claim

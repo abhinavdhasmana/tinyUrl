@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: node-tinyurl-service
+  labels:
+    app: node-tinyurl
+spec:
+  selector:
+    app: nodejs-tinyurl
+  type: NodePort
+  ports:
+    - port: 8080
+      nodePort: 30001
+      protocol: TCP
