@@ -1,0 +1,53 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name:  efs-provisioner
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app:  efs-provisioner
+    spec:
+      containers:
+      - image:  quay.io/external_storage/efs-provisioner:latest
+        name:  efs-provisioner
+        resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "128Mi"
+              cpu: "100m"
+        env:
+        - name:  FILE_SYSTEM_ID
+          valueFrom:
+            configMapKeyRef:
+              name: efs-provisioner
+              key: file.system.id
+        - name: AWS_REGION
+          valueFrom:
+            configMapKeyRef:
+              name: efs-provisioner
+              key: aws.region
+        - name: DNS_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: efs-provisioner
+              key: dns.name
+              optional: true
+        - name: PROVISIONER_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: efs-provisioner
+              key: provisoner.name
+      volumeMounts:
+        - name:  pv-volume
+          mountPath:  /persistentvolumes
+  volumes:
+    - name:  pv-volume
+      nfs:
+        server: fs-8cbe02cd.efs.ap-southeast-1.amazonaws.com
+        mountPath: /

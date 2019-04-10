@@ -1,0 +1,15 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: redis-tinyurl-efs-volume
+  annotations:
+    volume.beta.kubernetes.io/storage-class: "aws-efs"
+
+  labels:
+    type: local
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Mi

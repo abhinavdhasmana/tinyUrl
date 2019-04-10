@@ -20,8 +20,8 @@ spec:
               memory: "128Mi"
               cpu: "100m"
             limits:
-              memory: "256Mi"
-              cpu: "200m"
+              memory: "128Mi"
+              cpu: "100m"
           volumeMounts:
             - name: pg-tinyurl-volume
               mountPath: /var/lib/postgresql/data

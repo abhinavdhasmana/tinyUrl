@@ -17,8 +17,8 @@ spec:
               memory: "128Mi"
               cpu: "100m"
             limits:
-              memory: "256Mi"
-              cpu: "200m"
+              memory: "128Mi"
+              cpu: "100m"
           volumeMounts:
             - name: redis-tinyurl-volume
               mountPath: /data
